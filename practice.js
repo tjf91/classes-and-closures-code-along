@@ -16,7 +16,10 @@
 */
 
 function count(num){
-    // Code here
+  var n = num
+  return function (){
+    return n+=1
+  }
 };
 
 
@@ -40,14 +43,19 @@ var newClosure = count(5);
 */
  
 // Code here
-    
+    function greeting(name){
+      let n = name
+      return function(greet){
+        return (greet+" "+n)
+      }
+    }
     
 
 
 // After you have created the greeting function above, uncomment the code below, but do not edit it
 
-// const greetingClosure = greeting('Henry');
-// let greet = greetingClosure('Hello')
+const greetingClosure = greeting('Henry');
+let greet = greetingClosure('Hello')
     
 
 
@@ -64,7 +72,27 @@ var newClosure = count(5);
 */
 
 // Code here
-
+function calculatorCreator (){
+  let num=0
+  return{
+    add:function(n){
+      num+=n
+      return num
+    },
+    subtract:function(n){
+      num-=n
+      return num
+    },
+    multiply:function(n){
+      num*=n
+      return num
+    },
+    divide:function(n){
+      num/=n
+      return num
+    },
+  }
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -75,7 +103,14 @@ var newClosure = count(5);
 */
 
 // Code here
+class Puppy {
+  constructor(happiness,energy,behavior) {
+    this.happiness=happiness
+    this.energy=energy
+    this.behavior=behavior
+  }
 
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -88,7 +123,18 @@ var newClosure = count(5);
 */
 
 // Code here
-
+class Car {
+  constructor(manufacturer,year) {
+    this.manufacturer=manufacturer
+    this.year=year    
+  }
+  displayManufacturer(){
+    return this.manufacturer
+  }
+  displayYear(){
+    return this.year
+  }
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -101,5 +147,23 @@ var newClosure = count(5);
     - takesNap: This method should decrease energy by 45 and increase behavior by 15
 
 */
+const larry= new Puppy(10,20,30)
+const moe= new Puppy(10,20,30)
+const curly= new Puppy(10,20,30)
+
+
 
 // Code here
+
+class Panda extends Puppy{
+  getsTreat(){
+    this.happiness+=20
+    return this.happiness
+  }
+  takesNap(){
+    this.energy-=45
+    this.behavior+=15
+  }
+}
+
+
